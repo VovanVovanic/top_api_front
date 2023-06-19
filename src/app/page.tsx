@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 export default function Home() {
+  const a = 1
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -50,6 +51,7 @@ export default function Home() {
             Docs{' '}
             <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               -&gt;
+              {a}
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
