@@ -1,14 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 const constants = {
-  red: '#F23C3D',
-  green: '#008D64',
-  black: '#222222',
-  white: '#ffffff',
-  'light-gray': '#E8E7E3',
-  'dark-green': '#006044',
-  'beige': '#A49B8F',
-  'light-green': '#E6F2EF'
-
+  red: '#FC836D',
+  green: '#1DC37E',
+  black: '#3B434E',
+  white: 'white',
+  'primary': '#7653FC',
+  'light-green': '#C8F8E4'
 }
 
 module.exports = {
@@ -25,6 +22,9 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors:constants,
+      fontFamily:{
+        sans: ['Noto Sans', 'sans-serif']
+      },
       fontSize: {
         xs: '0.82rem',
         sm: '0.98rem',
