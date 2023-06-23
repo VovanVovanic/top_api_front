@@ -1,0 +1,17 @@
+.button{
+    @apply p-2.5 bg-primary rounded-md text-center text-sm text-white font-sans leading-3 transition-all duration-300 ease-in border border-solid
+}
+
+.primary{
+    @apply  border-white
+    &:hover{
+        @apply bg-primary-hover
+    }
+}
+
+.ghost{
+    @apply bg-white  border-gray;
+    &:hover{
+        @apply bg-primary border-white
+    }
+}

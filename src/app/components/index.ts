@@ -1,6 +1,7 @@
-import Htag from '../components/Htag/Htag'
+
+import Buttons from '../components/Buttons/Buttons'
 
 
 export {
-    Htag
+     Buttons
 }

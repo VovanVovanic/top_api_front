@@ -1,7 +1,6 @@
 import { IHtag, ITag } from "./Htag.types";
 import classes from './Htag.module.scss'
 import cn from 'classnames'
-import { JsxElement } from "typescript";
 
 const Htag: React.FC<IHtag> = ({ tag, children }) => {
   

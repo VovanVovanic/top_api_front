@@ -5,6 +5,8 @@ const constants = {
   black: '#3B434E',
   white: 'white',
   'primary': '#7653FC',
+  'primary-hover': '#5a3ccf',
+  'gray':'#EBEBEB',
   'light-green': '#C8F8E4'
 }
 
