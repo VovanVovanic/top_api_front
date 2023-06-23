@@ -1,9 +1,13 @@
+import {Htag} from './components/index'
+import classes from './main.module.scss'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between text-sm lg:flex font-sans">
-        Hello World
+    <main className={classes.main}>
+      <div>
+        <Htag tag={'h1'}>
+          Hello World
+        </Htag>
       </div>
     </main>
   )
