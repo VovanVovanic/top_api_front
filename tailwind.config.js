@@ -6,7 +6,8 @@ const constants = {
   white: 'white',
   'primary': '#7653FC',
   'primary-hover': '#5a3ccf',
-  'gray':'#EBEBEB',
+  'gray': '#EBEBEB',
+  'dark-grey': '#B3C0D9',
   'light-green': '#C8F8E4'
 }
 
@@ -23,15 +24,18 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      borderRadius: {
+        'tag_radius':'1.25rem'
+      },
       colors:constants,
       fontFamily:{
-        sans: ['Noto Sans', 'sans-serif']
+        sans: ['Noto Sans KR', 'sans-serif']
       },
       fontSize: {
-        xs: '0.82rem',
-        sm: '0.98rem',
-        base: '1.15rem',
-        lg: '1.22rem',
+        xs: '0.75rem',
+        sm: '0.875rem',
+        base: '1rem',
+        lg: '1.25rem',
         xl: '1.36rem',
         '1.5x1': '1.5rem',
         '2x1': '1.725rem',

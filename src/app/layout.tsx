@@ -3,7 +3,10 @@ import Head from "next/head";
 import "./globals.scss";
 import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  style: "normal",
+  subsets: ["latin"]
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -18,21 +21,23 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Head>
-      <title>My next app</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-        rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossOrigin={"anonymous"}
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet"
-      />
+        <title>My next app</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin={"anonymous"}
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-      <body 
-      className={inter.className}
-      >{children}</body>
+      <body
+        className={inter.className}
+      >{
+          children
+        }</body>
     </html>
   );
 }

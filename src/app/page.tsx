@@ -1,11 +1,13 @@
 'use client'
-import { Buttons } from './components/index'
+import { Buttons, Paragraph, Tag } from './components/index'
 import classes from './main.module.scss'
 
 export default function Home() {
+  const c = "Whereas recognition of the inherent dignity"
   return (
     <main className={classes.main}>
-      <div>
+      <Tag content={"Hello World"} color={"grey"} />
+      <div className={classes.div}>
         <Buttons
           appearance='primary'
           onAction={() => console.log('Hello from primary')}
