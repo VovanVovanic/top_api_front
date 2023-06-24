@@ -1,22 +1,36 @@
+'use client'
 import { IButtons } from "./Buttons.types"
-import '@/styles/globals.css'
+import classes from './Btns.module.scss'
 import cn from 'classnames'
-import classes from './Buttons.module.scss'
+import { get } from "https"
+import { useState } from "react"
+import Arrow from "../Arrow/Arrow"
 
-const Buttons:React.FC<IButtons>=({appearance, children,  onClick})=>{
+const Buttons: React.FC<IButtons> = ({ appearance, children,onAction }) => {
+    const [showReviews, setShowReviews] = useState<boolean>(false)
+    const appearenceType = appearance === 'primary'
+    !!appearenceType
 
+    const arrowDir = showReviews ? 'down' : 'right'
+    
     const onClickHandler = ()=>{
-        onClick()
+        onAction()
+        !appearenceType && setShowReviews(!showReviews)
     }
-
-    return(
+    const getClassNames = cn(classes.button, {
+        [classes.primary]: appearenceType,
+        [classes.ghost]: !appearenceType
+    })
+    return (
         <button
-            className={cn(classes.button,{
-                [classes.primary]:appearance === 'primary',
-                [classes.ghoast]:appearance === 'ghost'
-            })}
-             onClick={onClickHandler}>
+            className={getClassNames}
+            onClick={onClickHandler}
+        >
             {children}
+            {
+                appearance === 'ghost' ?
+                    <Arrow dir={arrowDir} /> :
+                    <></>}
         </button>
     )
 }

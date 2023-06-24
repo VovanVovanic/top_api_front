@@ -1,4 +1,5 @@
-import {Buttons} from './components/index'
+'use client'
+import { Buttons } from './components/index'
 import classes from './main.module.scss'
 
 export default function Home() {
@@ -6,14 +7,14 @@ export default function Home() {
     <main className={classes.main}>
       <div>
         <Buttons
-        appearance='primary'
-        onClick={()=>console.log('Hello from primary')}
+          appearance='primary'
+          onAction={() => console.log('Hello from primary')}
         >Button
         </Buttons>
 
         <Buttons
-        appearance='ghost'
-        onClick={()=>console.log('Hello from ghost')}
+          appearance='ghost'
+          onAction={() => console.log('Hello from ghost')}
         >Button</Buttons>
       </div>
     </main>

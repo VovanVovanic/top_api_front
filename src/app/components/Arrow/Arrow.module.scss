@@ -1,0 +1,15 @@
+.arrow {
+ @apply w-1.5 h-4 p-0 mb-0.5 ml-2.5 transition-all duration-300 rotate-0
+}
+
+.arrowDown {
+ @apply rotate-90
+}
+
+.arrowWright {
+ @apply rotate-0
+}
+
+.wrap{
+ @apply flex items-center justify-center h-4
+}
