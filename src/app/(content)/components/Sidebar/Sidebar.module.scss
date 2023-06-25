@@ -1,3 +1,10 @@
-.sidebar{
- @apply bg-orange-950
+.sidebar {
+ @apply bg-red;
+ grid-area: sidebar;
+}
+
+@media(max-width:765px) {
+ .sidebar {
+  @apply hidden
+ }
 }

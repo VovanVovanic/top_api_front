@@ -8,7 +8,9 @@ const constants = {
   'primary-hover': '#5a3ccf',
   'gray': '#EBEBEB',
   'dark-grey': '#B3C0D9',
-  'light-green': '#C8F8E4'
+  'light-green': '#C8F8E4',
+  'layout-grey': '#F5F6F8'
+  
 }
 
 module.exports = {
@@ -31,6 +33,12 @@ module.exports = {
       fontFamily:{
         sans: ['Noto Sans KR', 'sans-serif']
       },
+      gridTemplateColumns: {
+        'layout_columns': 'auto 230px["sidebar"] minmax(320px,1200px)["content] auto'
+      },
+      gridTemplateRows: {
+        'layout_rows': 'auto 1fr auto'
+      },
       fontSize: {
         xs: '0.75rem',
         sm: '0.875rem',
@@ -50,6 +58,10 @@ module.exports = {
         'h2':'1.375rem',
         'h3':'1.25rem'
       },
+      padding: {
+        '25': '1.563rem',
+        '30': '1.875rem'
+      }
     },
   },
   plugins: [],

@@ -15,14 +15,14 @@ export const metadata = {
 const SiteLayout:React.FC<ISiteLayoutTypes> = ({children})=> {
   
  return (
-  <>
+  <div className={cn(classes.wrapper)}>
    <Header>Header</Header>
    <Sidebar>Sidebar</Sidebar>
     <div className={cn(classes.layout)}>
       {children}
    </div>
    <Footer>Footer</Footer>
-   </>
+   </div>
   );
 }
 

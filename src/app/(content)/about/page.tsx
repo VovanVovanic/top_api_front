@@ -6,7 +6,7 @@ const AboutPage: React.FC = () => {
  return (
 
   <div className={cn(classes.page)}>
-    About
+    About lks;ldk sdlsldgk ldkglfsk ldsfkgsldkg 
   </div>
 
  )

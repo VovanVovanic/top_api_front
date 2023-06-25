@@ -1,3 +1,17 @@
 .footer{
- @apply bg-primary
+ @apply bg-primary grid text-white text-base leading-5 gap-10 py-25 px-30;
+ grid-template-columns: 1fr auto auto;
+ grid-area: footer;
+ a{
+  @apply transition-all duration-300 text-white no-underline;
+  &:hover{
+   @apply text-dark-grey underline
+  }
+ }
+}
+
+@media(max-width:765px){
+ .footer{
+  grid-template-columns: 1fr
+ }
 }
