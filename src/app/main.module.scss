@@ -1,7 +1,0 @@
-.main{
-    @apply flex min-h-screen flex-col items-center justify-between pt-12 pl-24 pr-24 font-sans;
-    
-    .div{
-        @apply z-10 w-full max-w-full items-center justify-between text-sm lg:flex font-sans bg-white;
-    }
-}
