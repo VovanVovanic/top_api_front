@@ -61,8 +61,13 @@ module.exports = {
       padding: {
         '25': '1.563rem',
         '30': '1.875rem'
+      },
+      margin: {
+        '25': '1.563rem',
+        '30px': '1.875rem'
       }
     },
+
   },
   plugins: [],
 }

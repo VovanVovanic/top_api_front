@@ -1,0 +1,42 @@
+.menu{
+ @apply p-5;
+ 
+}
+
+.firstLevel{
+ @apply grid gap-5 mt-5 items-center text-lg leading-6 font-medium transition-all duration-300;
+ grid-template-columns: 24px 1fr;
+ &:hover svg{
+  @apply fill-primary
+ }
+ &:hover{
+  @apply text-primary
+ }
+
+}
+
+.firstLevelActive{
+ @apply text-primary;
+ svg{
+  @apply fill-primary
+ }
+}
+
+.secondList{
+ @apply   border-l-2 ml-3 mt-5 mb-5 border-[#DFDFDF];
+}
+.secondLevel{
+ @apply text-['#787D85'] text-xs font-light uppercase transition-all duration-300 pl-8 py-1;
+
+}
+
+.thirdLevel{
+@apply text-[#787D85] font-bold text-sm transition-all duration-300 normal-case py-1;
+&:hover{
+ @apply text-primary
+}
+}
+
+.thirdLevelActive{
+@apply text-primary
+}

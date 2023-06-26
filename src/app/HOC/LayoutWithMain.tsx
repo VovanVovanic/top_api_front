@@ -1,15 +1,16 @@
 import { FunctionComponent, PropsWithChildren, ReactNode } from "react";
-import classes from './Main.module.scss'
-import cn from 'classnames'
+import RootLayout from "../Layouts/SiteLayout";
 
-const LayoutWithMain = <T extends Record<string, unknown> & PropsWithChildren>(Component: FunctionComponent<T>) => {
- return function withMain(props: T): ReactNode{
-  return (
-   <main className={cn(classes.main)}>
-    <Component {...props} />
- </main>
-  )
- }
+
+
+const WithLayout = <T extends Record<string, never> & PropsWithChildren>(Component: FunctionComponent<T>) => {
+   return function withMain(props: T): ReactNode {
+      return (
+         <RootLayout>
+            <Component {...props} />
+         </RootLayout>
+      )
+   }
 }
 
-export default LayoutWithMain
+//export default WithLayout
