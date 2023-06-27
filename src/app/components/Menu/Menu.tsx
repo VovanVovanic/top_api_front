@@ -1,30 +1,45 @@
 "use client"
 import { getMenu } from '@/app/api/REST'
 import { MenuItem, PageItem } from '@/app/interfaces/menu.interface'
-import { TopLevelCategory } from '@/app/interfaces/page.interface'
 import cn from 'classnames'
-import { ReactNode } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import classes from './Menu.module.scss'
-import { IMenu } from './MenuTypes'
-import CoursesIcon from '../../assets/images/courses.svg'
-import ServisesIcon from '../../assets/images/servises.svg'
-import BooksIcon from '../../assets/images/books.svg'
-import ProductIcon from '../../assets/images/products.svg'
 import Link from 'next/link'
-import { useRouter } from 'next/dist/client/router'
+import { usePathname, useRouter } from 'next/navigation'
+import { AppContext } from '@/app/context/MenuContest'
+import { topMenu } from '@/app/utils/utils'
 
 
-export default async function Menu() {
-  const res = await getMenu(0)
+
+const Menu: React.FC = () => {
+  const [isOpenOnPageRefresh, setIsOpenOnPageRefresh] = useState<boolean>(true)
+  const { menu, setMenu, firstCategory } = useContext(AppContext)
+
+  useEffect(() => {
+    (async () => {
+      const r = await getMenu(0)
+      console.log(r)
+      setMenu && setMenu(r)
+    })()
+
+  }, [])
   const router = useRouter()
-  console.log(router) 
-  const topMenu: IMenu[] = [
-    { id: TopLevelCategory.Courses, route: 'courses', name: 'Courses', icon: <CoursesIcon /> },
-    { id: TopLevelCategory.Services, route: 'services', name: 'Services', icon: <ServisesIcon /> },
-    { id: TopLevelCategory.Books, route: 'books', name: 'Books', icon: <BooksIcon /> },
-    { id: TopLevelCategory.Products, route: 'products', name: 'Products', icon: <ProductIcon /> },
-  ]
+  const pathname = usePathname()
 
+
+  const setThirdSubMenuOpened = (category: string) => {
+    setIsOpenOnPageRefresh(false)
+    router.push('/courses')
+    const newArr = menu.map((el) => {
+      if (el._id.secondCategory === category) {
+        return { ...el, isOpened: !el.isOpened }
+      }
+      else {
+        return { ...el, isOpened: false }
+      }
+    })
+    setMenu && setMenu(newArr)
+  }
   const buildFirstLevel = () => {
     return topMenu.map(({ id, route, name, icon }, i) => {
       return (
@@ -55,20 +70,26 @@ export default async function Menu() {
   }
 
   const buildSecondLevel = (route: string) => {
-    return res.map((el: MenuItem) => {
+
+    return menu.map((el: MenuItem) => {
+      if (isOpenOnPageRefresh && el.pages.map((p) => p.alias).includes(pathname.split('/')[2])) {
+        el.isOpened = true
+      }
+
       return (
         <>
           <li key={el._id.secondCategory}
             className={cn(classes.secondLevel, {
               [classes.secondCategoryActive]: el.isOpened === true
             })}
-          onClick={()=>console.log('click')}
           >
             <>
-              <span>{el._id.secondCategory}</span>
-              {el.isOpened === true &&
+              <span
+                onClick={() => setThirdSubMenuOpened(el._id.secondCategory)}
+              >{el._id.secondCategory}</span>
+              {el.isOpened &&
                 <ul>
-                  {buildThirdLevel(el.pages, route)}
+                  {buildThirdLevel(el.pages, route, el.isOpened)}
                 </ul>}
             </>
           </li>
@@ -77,13 +98,13 @@ export default async function Menu() {
     })
   }
 
-  const buildThirdLevel = (pages: PageItem[], route: string) => {
+  const buildThirdLevel = (pages: PageItem[], route: string, open: boolean) => {
     return pages.map((page) => {
       return (
         <li>
-          <Link href={`${route}/${page.alias}`}
+          <Link href={`/${route}/${page.alias}`}
             className={cn(classes.thirdLevel, {
-              [classes.thirLevelActive]: true
+              [classes.thirdLevelActive]: page.alias === pathname.split('/')[2]
             })}
           >
 
@@ -102,3 +123,4 @@ export default async function Menu() {
     </ul>
   )
 }
+export default Menu

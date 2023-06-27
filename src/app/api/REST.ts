@@ -1,6 +1,6 @@
 import { MenuItem } from "../interfaces/menu.interface";
 import { TopPageModel } from "../interfaces/page.interface";
-import { API } from "./constants"
+import { API } from "./endpoints"
 
 export const getMenu = async (category: number) => {
   try {

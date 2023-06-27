@@ -1,44 +1,49 @@
-.menu{
- @apply p-5;
- 
+.menu {
+ //@apply p-5;
+
 }
 
-.firstLevel{
+.firstLevel {
  @apply grid gap-5 mt-5 items-center text-lg leading-6 font-medium transition-all duration-300;
  grid-template-columns: 24px 1fr;
- &:hover svg{
+
+ &:hover svg {
   @apply fill-primary
  }
- &:hover{
+
+ &:hover {
   @apply text-primary
  }
 
 }
 
-.firstLevelActive{
+.firstLevelActive {
  @apply text-primary;
- svg{
+
+ svg {
   @apply fill-primary
  }
 }
 
-.secondList{
- @apply   border-l-2 ml-3 mt-5 mb-5 border-[#DFDFDF];
+.secondList {
+ @apply border-l-2 ml-3 mt-5 mb-5 border-[#DFDFDF];
 }
-.secondLevel{
+
+.secondLevel {
  @apply text-['#787D85'] text-xs font-light uppercase transition-all duration-300 pl-8 py-1 cursor-pointer;
- &:hover{
+
+ &:hover {
   @apply text-primary
  }
 }
 
-.thirdLevel{
-@apply text-[#787D85] font-bold text-sm transition-all duration-300 normal-case py-1;
-&:hover{
- @apply text-primary
-}
+.thirdLevel {
+ @apply text-[#787D85] font-bold text-sm transition-all duration-300 normal-case py-1;
+ &:hover {
+  @apply text-primary
+ }
 }
 
-.thirdLevelActive{
-@apply text-primary
+.thirdLevelActive {
+ @apply text-primary
 }

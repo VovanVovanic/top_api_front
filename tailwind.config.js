@@ -45,6 +45,7 @@ module.exports = {
         base: '1rem',
         lg: '1.25rem',
         xl: '1.36rem',
+        'hg':'1.875rem',
         '1.5x1': '1.5rem',
         '2x1': '1.725rem',
         '3x1': '2.155rem',

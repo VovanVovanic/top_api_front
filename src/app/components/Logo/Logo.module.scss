@@ -1,0 +1,14 @@
+.logo{
+ @apply grid p-0 h-10  w-56 justify-between items-center mt-8 ;
+ grid-template-columns: auto auto auto ;
+ .icon{
+  @apply cursor-pointer
+ }
+ .upper{
+  @apply text-primary font-bold text-hg uppercase 
+ }
+
+ .lover{
+ @apply text-primary text-1.5x1 font-extralight lowercase
+ }
+}

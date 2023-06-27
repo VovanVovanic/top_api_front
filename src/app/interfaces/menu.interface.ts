@@ -5,6 +5,7 @@ export interface PageItem {
 	title: string;
 	_id: string;
 	category: string;
+	isActive: boolean
 }
 
 export interface MenuItem {
@@ -20,4 +21,11 @@ export interface FirstLevelMenuItem {
 	name: string;
 	icon: JSX.Element;
 	id: TopLevelCategory;
+}
+
+export interface IAliasParam{
+	 params: { alias: string }
+}
+export interface ICategoryParam{
+	params: { category: string }
 }

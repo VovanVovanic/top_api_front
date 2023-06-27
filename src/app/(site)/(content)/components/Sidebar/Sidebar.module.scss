@@ -1,5 +1,5 @@
 .sidebar {
- @apply bg-layout-grey;
+ @apply bg-layout-grey grid content-start;
  grid-area: sidebar;
 }
 

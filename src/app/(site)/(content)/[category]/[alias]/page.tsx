@@ -1,13 +1,13 @@
-import classes from '../Product.module.scss'
+
 import cn from 'classnames'
-import { IPageLayout, IParams } from '../ProductTypes'
 import { getMenu, getProductByAlias} from '@/app/api/REST'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
-import { PageItem } from '@/app/interfaces/menu.interface'
+import { IAliasParam, PageItem } from '@/app/interfaces/menu.interface'
+
 
 export const metadata: Metadata = {
-  title: "Product Page"
+  title: "Item Page"
 }
 
 export async function generateStaticParams (){
@@ -16,18 +16,18 @@ export async function generateStaticParams (){
 }
 
 
-const ProductPage = async ({ params } :IParams) => {
+const SingleCoursePage = async ({ params } :IAliasParam) => {
   const res = await getProductByAlias(params.alias)
   if (!res) {
     notFound()
   }
   return (
-    <div className={cn(classes.page)}>
-      Product
+    <div>
+      <span><b>Item</b></span>
       {params.alias}
       {JSON.stringify(res)}
     </div>
 
   )
 }
-export default ProductPage
+export default SingleCoursePage

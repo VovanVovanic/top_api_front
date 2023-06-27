@@ -5,7 +5,10 @@ import cn from 'classnames'
 import Footer from "@/app/(site)/(content)/components/Footer/Footer";
 import Header from "@/app/(site)/(content)/components/Header/Header";
 import Sidebar from "@/app/(site)/(content)/components/Sidebar/Sidebar";
-import Menu  from "@/app/components/Menu/Menu";
+import Menu from "@/app/components/Menu/Menu";
+import { AppContextProvider } from "@/app/context/MenuContest";
+import { TopLevelCategory } from "@/app/interfaces/page.interface";
+import Logo from "@/app/components/Logo/Logo";
 
 
 
@@ -25,17 +28,20 @@ function RootLayout({
    children: React.ReactNode;
 }) {
    return (
-      <div className={cn(classes.wrapper)}>
-         <Header>Header</Header>
-         <Sidebar>
-            {/* @ts-expect-error Server Component */}
-            <Menu />
-         </Sidebar>
-         <div className={cn(classes.layout)}>
-            {children}
+      <AppContextProvider menu={[]} firstCategory={TopLevelCategory.Courses}>
+         <div className={cn(classes.wrapper)}>
+            <Header>Header</Header>
+            <Sidebar>
+               <Logo />
+               <div style={{marginBottom:"30px", marginTop:"20px"}}>Search</div>
+               <Menu />
+            </Sidebar>
+            <div className={cn(classes.layout)}>
+               {children}
+            </div>
+            <Footer>Footer</Footer>
          </div>
-         <Footer>Footer</Footer>
-      </div>
+      </AppContextProvider>
    );
 }
 
