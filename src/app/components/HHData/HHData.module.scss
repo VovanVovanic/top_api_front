@@ -1,0 +1,59 @@
+.hh{
+ @apply grid gap-7 mt-6 mb-12;
+ grid-template-columns: 1fr 3fr;
+}
+.count{
+ @apply p-5 text-center
+}
+
+.salary{
+ @apply grid p-5  text-center gap-y-5 gap-x-0;
+ grid-template-columns: 1fr 1fr 1fr;
+ .salaryItem{
+  @apply border-r-2 border-solid border-gray;
+		&:last-child{
+			@apply border-none
+		}
+ }
+
+}
+.salaryValue{
+	@apply font-semibold text-h1 mb-3
+}
+
+.title{
+ @apply mb-2.5 text-lg font-light leading-7 
+}
+
+.countValue{
+ @apply text-primary text-[26px] font-bold leading-9
+}
+
+.rate{
+ @apply grid gap-2.5 justify-center;
+ grid-template-columns: repeat(3, 20px);
+}
+
+.filled circle{
+ @apply fill-red
+}
+
+@media screen and (max-width: 1200px) {
+	.hh {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.salary {
+		grid-template-columns: 1fr;
+	}
+
+	.salary > div {
+  @apply pb-5 border-r-0 border-b border-solid border-gray;
+	}
+
+	.salary > div:last-child {
+		@apply pb-0 border-b-0
+	}
+}

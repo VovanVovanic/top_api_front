@@ -30,7 +30,7 @@ function RootLayout({
    return (
       <AppContextProvider menu={[]} firstCategory={TopLevelCategory.Courses}>
          <div className={cn(classes.wrapper)}>
-            <Header>Header</Header>
+
             <Sidebar>
                <Logo />
                <div style={{marginBottom:"30px", marginTop:"20px"}}>Search</div>

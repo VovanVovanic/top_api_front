@@ -18,7 +18,6 @@ const Menu: React.FC = () => {
   useEffect(() => {
     (async () => {
       const r = await getMenu(0)
-      console.log(r)
       setMenu && setMenu(r)
     })()
 
@@ -101,7 +100,7 @@ const Menu: React.FC = () => {
   const buildThirdLevel = (pages: PageItem[], route: string, open: boolean) => {
     return pages.map((page) => {
       return (
-        <li>
+        <li key={page.alias}>
           <Link href={`/${route}/${page.alias}`}
             className={cn(classes.thirdLevel, {
               [classes.thirdLevelActive]: page.alias === pathname.split('/')[2]

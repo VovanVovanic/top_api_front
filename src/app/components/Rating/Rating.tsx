@@ -1,3 +1,4 @@
+"use client"
 import classes from './Rating.module.scss'
 import cn from 'classnames'
 import { IRating } from './RatingTypes'

@@ -1,0 +1,29 @@
+.wrapper{
+	@apply pt-10 pl-8 pb-12
+}
+.title {
+	@apply grid gap-5 mb-7 items-center justify-items-start bg-layout-grey;
+	grid-template-columns: auto 1fr auto;
+}
+
+.hhTitle {
+	@apply grid items-center justify-items-start gap-5;
+	grid-template-columns: auto 1fr;
+}
+
+.seo h1 {
+	@apply m-0 text-h1 font-bold leading-9
+}
+.seo h2 {
+	@apply mt-12 mb-7 text-hg font-bold leading-8
+}
+
+.seo h3 {
+	@apply mt-8 mb-4 text-h3 font-semibold leading-7
+}
+
+@media screen and (max-width: 640px) {
+	.title {
+		grid-template-columns: auto 1fr;
+	}
+}

@@ -1,0 +1,18 @@
+.advantage{
+ @apply grid mb-30px gap-x-10 gap-y-1;
+ grid-template-columns: 50px 1fr;
+}
+.title{
+ @apply font-bold self-center
+}
+
+
+.icon{
+ @apply w-12 h-12 rounded-full bg-[#C8F8E4] flex justify-center items-center
+}
+.description{
+ //@apply border-l-2  border-solid border-[#D2D2D2];
+}
+.line{
+ @apply w-3 h-[60%] border-l-2  border-solid border-[#D2D2D2] self-center ml-5;
+}

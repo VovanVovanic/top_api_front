@@ -57,7 +57,7 @@ module.exports = {
         '9x1': '9.2rem',
         'h1':'1.625rem',
         'h2':'1.375rem',
-        'h3':'1.25rem'
+        'h3':'1.688rem'
       },
       padding: {
         '25': '1.563rem',

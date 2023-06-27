@@ -2,17 +2,17 @@ import { IHtag, ITag } from "./Htag.types";
 import classes from './Htag.module.scss'
 import cn from 'classnames'
 
-const Htag: React.FC<IHtag> = ({ tag, children }) => {
+const Htag: React.FC<IHtag> = ({ tag, children, className }) => {
   
 const headerStyles = (tag:ITag)=>{
     if(tag === 'h1'){
-        return cn(classes.h1)
+        return cn(classes.h1,className)
     }
     if(tag === 'h2'){
-        return cn(classes.h2)
+        return cn(classes.h2,className)
     }
     else{
-        return cn(classes.h3)
+        return cn(classes.h3,className)
     }
 }
   switch (tag) {

@@ -1,9 +1,10 @@
 
 import cn from 'classnames'
-import { getMenu, getProductByAlias} from '@/app/api/REST'
+import { getMenu, getProductByAlias, getProductsByCategory} from '@/app/api/REST'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { IAliasParam, PageItem } from '@/app/interfaces/menu.interface'
+import TopPage from '@/app/pageComponents/TopPageComponent/TopPage'
 
 
 export const metadata: Metadata = {
@@ -17,17 +18,16 @@ export async function generateStaticParams (){
 
 
 const SingleCoursePage = async ({ params } :IAliasParam) => {
-  const res = await getProductByAlias(params.alias)
-  if (!res) {
+  const page = await getProductByAlias(params.alias)
+  if (!page) {
     notFound()
   }
+  const products = await getProductsByCategory(page.category)
+ 
   return (
     <div>
-      <span><b>Item</b></span>
-      {params.alias}
-      {JSON.stringify(res)}
+      <TopPage firstCategory={page.firstCategory} products={products} page={page} />
     </div>
-
   )
 }
 export default SingleCoursePage
