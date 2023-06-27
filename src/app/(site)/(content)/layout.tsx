@@ -2,9 +2,9 @@
 import { Inter } from "next/font/google";
 import classes from './SiteLayout.module.scss'
 import cn from 'classnames'
-import Footer from "@/app/Layouts/components/Footer/Footer";
-import Header from "@/app/Layouts/components/Header/Header";
-import Sidebar from "@/app/Layouts/components/Sidebar/Sidebar";
+import Footer from "@/app/(site)/(content)/components/Footer/Footer";
+import Header from "@/app/(site)/(content)/components/Header/Header";
+import Sidebar from "@/app/(site)/(content)/components/Sidebar/Sidebar";
 import Menu  from "@/app/components/Menu/Menu";
 
 
