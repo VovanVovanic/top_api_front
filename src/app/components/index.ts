@@ -11,6 +11,7 @@ import Logo from './Logo/Logo';
 import Menu from './Menu/Menu';
 import Paragraph from "./Paragraph/Paragraph";
 import Rating from "./Rating/Rating";
+import Review from './ReviewItem/Review';
 import Search from './Search/Search';
 import Tag from "./Tag/Tag";
 import Textarea from './TextArea/TextArea';
@@ -32,5 +33,6 @@ export {
      Divider,
      Search,
      Input,
-     Textarea
+     Textarea,
+     Review
 }

@@ -1,17 +1,33 @@
-.button{
-    @apply flex p-2.5 bg-primary rounded-md text-center text-sm text-white font-sans leading-3 transition-all duration-300 ease-in border border-solid
+.button {
+    @apply flex bg-primary rounded-md text-center text-sm text-white font-sans transition-all duration-300 ease-in border border-solid p-0 flex;
+    .text{
+        @apply p-2.5 pr-5
+    } 
 }
 
-.primary{
-    @apply  border-white;
-    &:hover{
-        @apply  bg-white  border-gray text-black;
+.primary {
+    @apply border-white;
+
+    &:hover {
+        @apply bg-white border-gray text-black;
     }
 }
 
-.ghost{
-    @apply bg-white  border-gray text-black;
-    &:hover{
-        @apply bg-primary border-white text-white
+.ghost {
+    @apply bg-white border-gray text-black;
+
+    &:hover {
+        @apply bg-primary border-white text-white;
+
+        div {
+            svg {
+                @apply fill-primary
+            }
+        }
+
     }
+}
+
+.arrowBtn {
+    @apply ml-2
 }

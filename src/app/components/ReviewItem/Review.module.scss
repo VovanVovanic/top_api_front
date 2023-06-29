@@ -1,0 +1,44 @@
+.review{
+ @apply grid items-center gap-2.5 leading-6 text-sm px-30 py-30;
+ grid-template-columns: [start] auto 1fr auto auto [end]; 
+}
+
+.description{
+ grid-column: start / end;
+}
+
+.date{
+ @apply mr-2.5
+}
+
+.reviewRating{
+	@apply self-start
+}
+
+.name{
+ @apply font-bold
+}
+
+@media screen and (max-width: 640px) {
+	.review {
+		grid-template-columns: [start] 30px [titlestart] auto [dateend] 1fr [end];
+	}
+
+	.title {
+		grid-column: titlestart / end;
+	}
+
+	.date {
+		grid-column: start / dateend;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	.date {
+		grid-column: start / end;
+	}
+
+	.reviewRating {
+		grid-column: start / end;
+	}
+}

@@ -2,20 +2,16 @@
 import { IButtons } from "./Buttons.types"
 import classes from './Btns.module.scss'
 import cn from 'classnames'
-import { get } from "https"
-import { useState } from "react"
 import Arrow from "../Arrow/Arrow"
 
-const Buttons: React.FC<IButtons> = ({ appearance, children,onAction }) => {
-    const [showReviews, setShowReviews] = useState<boolean>(false)
+const Buttons: React.FC<IButtons> = ({ appearance, children, onAction, showReviews=false, disabled}) => {
     const appearenceType = appearance === 'primary'
     !!appearenceType
 
     const arrowDir = showReviews ? 'down' : 'right'
-    
-    const onClickHandler = ()=>{
+
+    const onClickHandler = () => {
         onAction()
-        !appearenceType && setShowReviews(!showReviews)
     }
     const getClassNames = cn(classes.button, {
         [classes.primary]: appearenceType,
@@ -25,11 +21,15 @@ const Buttons: React.FC<IButtons> = ({ appearance, children,onAction }) => {
         <button
             className={getClassNames}
             onClick={onClickHandler}
+            //{...props}
+            disabled={disabled}
         >
-            {children}
+            <span className={cn(classes.text)}>
+                {children}
+            </span>
             {
                 appearance === 'ghost' ?
-                    <Arrow dir={arrowDir} /> :
+                    <Arrow dir={arrowDir} className={cn(classes.arrowBtn)} /> :
                     <></>}
         </button>
     )
