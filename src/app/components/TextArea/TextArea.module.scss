@@ -1,0 +1,20 @@
+.textarea{
+ @apply w-full py-2 px-4 text-black border-none rounded-md outline-primary bg-white 
+text-base leading-5;
+ box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+ &::placeholder{
+  @apply text-gray
+ }
+}
+
+.error{
+ @apply border border-solid border-red
+}
+
+.wrapper{
+ @apply relative
+}
+
+.errorMessage{
+ @apply absolute bottom--4 left-0 text-red
+}

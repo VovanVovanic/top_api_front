@@ -1,22 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+ images: {
+		domains: ['courses-top.ru']
+	},
 	webpack(config, options) {
 		config.module.rules.push({
-			// options: {
-			// 	prettier: false,
-			// 	svgo: true,
-			// 	svgoConfig: {
-   //   plugins: [{ 
-   //    name: 'preset-default',
-   //    params: {
-   //     override: {
-   //      removeViewBox: false
-   //     }
-   //    }
-   //   }],
-			// 	},
-			// 	titleProp: true,
-   // },
    test: /\.svg$/,
    use: ["@svgr/webpack"]
 		});

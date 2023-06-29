@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { AppContext } from '@/app/context/MenuContest'
 import { topMenu } from '@/app/utils/utils'
+import { v4 } from 'uuid';
 
 
 
@@ -18,13 +19,13 @@ const Menu: React.FC = () => {
   useEffect(() => {
     (async () => {
       const r = await getMenu(0)
+      console.log(r)
       setMenu && setMenu(r)
     })()
 
   }, [])
   const router = useRouter()
   const pathname = usePathname()
-
 
   const setThirdSubMenuOpened = (category: string) => {
     setIsOpenOnPageRefresh(false)
@@ -43,7 +44,7 @@ const Menu: React.FC = () => {
     return topMenu.map(({ id, route, name, icon }, i) => {
       return (
         <>
-          <li key={route}>
+          <li key={v4()}>
             <>
               <Link href={`/${route}`}
                 className={cn(classes.firstLevel, {
@@ -77,7 +78,7 @@ const Menu: React.FC = () => {
 
       return (
         <>
-          <li key={el._id.secondCategory}
+          <li key={v4()}
             className={cn(classes.secondLevel, {
               [classes.secondCategoryActive]: el.isOpened === true
             })}
@@ -100,7 +101,7 @@ const Menu: React.FC = () => {
   const buildThirdLevel = (pages: PageItem[], route: string, open: boolean) => {
     return pages.map((page) => {
       return (
-        <li key={page.alias}>
+        <li key={v4()}>
           <Link href={`/${route}/${page.alias}`}
             className={cn(classes.thirdLevel, {
               [classes.thirdLevelActive]: page.alias === pathname.split('/')[2]

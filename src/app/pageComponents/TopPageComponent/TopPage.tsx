@@ -3,20 +3,24 @@ import cn from 'classnames'
 import { ITopPage } from './TopPageTypes';
 import { Advantages, HHData, Htag, Tag } from '@/app/components';
 import { TopLevelCategory } from '@/app/interfaces/page.interface';
+import Sort from '@/app/components/Sort/Sort';
+import { Product } from '@/app/components/Product/Products';
 
 const TopPage: React.FC<ITopPage> = ({ page, products, firstCategory }) => {
 
-console.log(page.advantages, page.advantages?.length)
  return (
   <div className={classes.wrapper}>
    <div className={classes.title}>
     <Htag tag='h1'>{page.title}</Htag>
     {products && <Tag color='grey' aria-label={products.length + 'элементов'} content={products.length} />}
-
+  <Sort />
    </div>
 
+   <div role='list'className={cn(classes.productList)}>
+				{products.map(p => (<Product role='listitem'  key={p._id} product={p} />))}
+			</div>
    <div className={classes.hhTitle}>
-    <Htag tag='h2'>Вакансии - {page.category}</Htag>
+    <Htag tag='h2'>Vacansies - {page.category}</Htag>
     <Tag color='red' content={'hh.ru'} />
    </div>
    {firstCategory == TopLevelCategory.Courses && page.hh && <HHData {...page.hh} />}

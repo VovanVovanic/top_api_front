@@ -22,6 +22,7 @@ const SingleCoursePage = async ({ params } :IAliasParam) => {
   if (!page) {
     notFound()
   }
+
   const products = await getProductsByCategory(page.category)
  
   return (

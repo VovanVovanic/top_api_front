@@ -1,11 +1,13 @@
 .wrapper{
-	@apply pt-10 pl-8 pb-12
+	@apply pt-10 px-8 pb-12
 }
 .title {
 	@apply grid gap-5 mb-7 items-center justify-items-start bg-layout-grey;
 	grid-template-columns: auto 1fr auto;
 }
-
+.productList{
+	@apply mb-[3.188rem]
+}
 .hhTitle {
 	@apply grid items-center justify-items-start gap-5;
 	grid-template-columns: auto 1fr;

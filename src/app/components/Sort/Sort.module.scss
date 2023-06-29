@@ -1,0 +1,27 @@
+.icon{
+ @apply hidden
+}
+
+.active{
+ @apply font-bold text-primary;
+
+}
+
+.active .icon{
+ @apply block mr-2
+}
+
+.sort{
+ @apply grid gap-10;
+ grid-template-columns: auto auto;
+ span{
+  @apply grid gap-2 items-center cursor-pointer transition-all duration-300;
+  grid-template-columns: 20px 1fr;
+  &:not(.active){
+   grid-template-columns: 1fr;
+  }
+  &:hover{
+   @apply text-primary font-bold
+  }
+ }
+}
