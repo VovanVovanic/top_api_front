@@ -8,19 +8,37 @@ import Rating from '../Rating/Rating';
 import Divider from '../Divider/Divider';
 import Buttons from '../Buttons/Buttons';
 import Image from 'next/image'
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Review from '../ReviewItem/Review';
 import { v4 } from 'uuid';
+import { ReviewForm } from '..';
 
 export const Product = ({ product, className, ...props }: IProduct) => {
-
+  const ref = useRef<HTMLDivElement>(null)
   const [reviewsOpen, setReviewsOpen] = useState<boolean>(false)
+  const [scroll, setScroll] = useState<boolean>(false)
+
+  useEffect(() => {
+    ref.current?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+      inline: "nearest" 
+    })
+    ref.current?.focus()
+  },[scroll])
 
   const variants = {
     visible: { opacity: 1, height: 'auto' },
     hidden: { opacity: 0, height: 0 }
   };
+  const onSmoothReviewOpen = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log(ref,"ref")
+    setReviewsOpen(true)
+    setScroll(!scroll)
 
+}
   const discount = product.price - product.oldPrice
   return (
     <div className={className} {...props} >
@@ -51,7 +69,7 @@ export const Product = ({ product, className, ...props }: IProduct) => {
         <div className={classes.tags}>{product.categories.map(c => <Tag key={c} className={classes.category} color='gost' content={c} />)}</div>
         <div className={classes.priceTitle} aria-hidden={true}>price</div>
         <div className={classes.creditTitle} aria-hidden={true}>credit</div>
-        <div className={classes.rateTitle}><a href="#ref" >{product.reviewCount} reviews</a></div>
+        <div className={classes.rateTitle}><a href="#ref" onClick={(e)=>onSmoothReviewOpen(e)} >{product.reviewCount} reviews</a></div>
         <Divider className={classes.hr} />
         <div className={classes.description}>{product.description}</div>
         <div className={classes.feature}>
@@ -86,7 +104,8 @@ export const Product = ({ product, className, ...props }: IProduct) => {
         </div>
       </Card>
       {(product.reviews.length && reviewsOpen) ?
-        <Card color='blue'>
+        <div ref={ref}>
+        <Card color='blue'  tabIndex={reviewsOpen ? 0 : -1}>
           {product.reviews.map((el) => {
             return (
               <Review
@@ -94,8 +113,10 @@ export const Product = ({ product, className, ...props }: IProduct) => {
                 review={el} />
             )
           })}
-        </Card> : ""
+          </Card>
+          </div>: ""
       }
+      {(product.reviews.length && reviewsOpen) ? <ReviewForm productId={product._id} isOpened={reviewsOpen} /> : ""}
     </div>
   );
 };

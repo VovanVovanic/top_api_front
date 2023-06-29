@@ -8,13 +8,13 @@
 }
 
 .error{
- @apply border border-solid border-red
+ @apply border-2 border-solid border-red
 }
 
-.wrapper{
+.inputWrapper{
  @apply relative
 }
 
 .errorMessage{
- @apply absolute text-red bottom-5 left-0
+ @apply absolute text-red top-11 left-1
 }

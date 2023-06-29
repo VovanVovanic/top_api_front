@@ -1,3 +1,4 @@
+import { IForm } from "../components/Card/ReviewForm/ReviewFormTypes";
 import { MenuItem } from "../interfaces/menu.interface";
 import { TopPageModel } from "../interfaces/page.interface";
 import { API } from "./endpoints"
@@ -20,6 +21,25 @@ export const getMenu = async (category: number) => {
 
   }
 
+}
+
+export const sendReview = async (formData: IForm, productId:string) => {
+
+  try {
+    const res = await fetch(API.review.createDemo, {
+      method: "POST",
+      body: JSON.stringify({ ...formData, productId }),
+      headers: new Headers({ 'content-type': 'application/json' })
+    },
+    )
+    return res.json()
+   
+  }
+  catch (e) {
+    console.log(e, "error");
+    return e
+  }
+  
 }
 
 export const getProductByAlias = async (alias: string): Promise<TopPageModel | null | undefined> => {

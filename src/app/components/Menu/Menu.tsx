@@ -19,7 +19,6 @@ const Menu: React.FC = () => {
   useEffect(() => {
     (async () => {
       const r = await getMenu(0)
-      console.log(r)
       setMenu && setMenu(r)
     })()
 
@@ -29,7 +28,6 @@ const Menu: React.FC = () => {
 
   const setThirdSubMenuOpened = (category: string) => {
     setIsOpenOnPageRefresh(false)
-    router.push('/courses')
     const newArr = menu.map((el) => {
       if (el._id.secondCategory === category) {
         return { ...el, isOpened: !el.isOpened }
@@ -43,7 +41,7 @@ const Menu: React.FC = () => {
   const buildFirstLevel = () => {
     return topMenu.map(({ id, route, name, icon }, i) => {
       return (
-        <>
+
           <li key={v4()}>
             <>
               <Link href={`/${route}`}
@@ -64,7 +62,7 @@ const Menu: React.FC = () => {
               }
             </>
           </li>
-        </>
+     
       )
     })
   }
@@ -77,7 +75,7 @@ const Menu: React.FC = () => {
       }
 
       return (
-        <>
+
           <li key={v4()}
             className={cn(classes.secondLevel, {
               [classes.secondCategoryActive]: el.isOpened === true
@@ -93,7 +91,7 @@ const Menu: React.FC = () => {
                 </ul>}
             </>
           </li>
-        </>
+
       )
     })
   }

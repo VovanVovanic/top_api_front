@@ -9,7 +9,7 @@ const Input = forwardRef(({ error,className, ...props }:IInput, ref:ForwardedRef
   <input className={cn(classes.input, {
    [classes.error]: error
   })} ref={ref} {...props} />
-  {classes && <span role="alert" className={classes.errorMessage}>{classes.message}</span>}
+  {error && <span role="alert" className={classes.errorMessage}>{error?.message}</span>}
  </div>
  )
 })

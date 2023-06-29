@@ -11,10 +11,10 @@ text-base leading-5;
  @apply border border-solid border-red
 }
 
-.wrapper{
+.textareaWrapper{
  @apply relative
 }
 
 .errorMessage{
- @apply absolute bottom--4 left-0 text-red
+ @apply absolute text-red top-14 left-1
 }

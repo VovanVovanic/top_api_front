@@ -6,5 +6,9 @@
 
 }
 .wrapper{
- @apply flex h-5
+ @apply flex h-5 relative
+}
+
+.errorMessage{
+ @apply absolute text-red top-6 left-1
 }

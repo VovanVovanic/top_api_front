@@ -3,6 +3,7 @@ import Advantages from "./Advantages/Advantages";
 import Arrow from './Arrow/Arrow';
 import Buttons from "./Buttons/Buttons";
 import Card from "./Card/Card";
+import ReviewForm from './Card/ReviewForm/ReviewForm';
 import Divider from './Divider/Divider';
 import HHData from "./HHData/HHData";
 import Htag from './Htag/Htag';
@@ -34,5 +35,6 @@ export {
      Search,
      Input,
      Textarea,
-     Review
+     Review,
+     ReviewForm
 }
