@@ -37,6 +37,10 @@
  }
 }
 
+.secondListChild{
+ @apply p-0 overflow-hidden 
+}
+
 .thirdLevel {
  @apply text-[#787D85] font-bold text-sm transition-all duration-300 normal-case py-1;
  &:hover {

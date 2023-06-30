@@ -9,6 +9,7 @@ import Menu from "@/app/components/Menu/Menu";
 import { AppContextProvider } from "@/app/context/MenuContest";
 import { TopLevelCategory } from "@/app/interfaces/page.interface";
 import Logo from "@/app/components/Logo/Logo";
+import { Search } from "@/app/components";
 
 
 
@@ -30,10 +31,10 @@ function RootLayout({
    return (
       <AppContextProvider menu={[]} firstCategory={TopLevelCategory.Courses}>
          <div className={cn(classes.wrapper)}>
-
+            <Header className={classes.header} children={undefined} />
             <Sidebar>
                <Logo />
-               <div style={{marginBottom:"30px", marginTop:"20px"}}>Search</div>
+               <Search />
                <Menu />
             </Sidebar>
             <div className={cn(classes.layout)}>

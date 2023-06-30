@@ -1,4 +1,20 @@
 .header{
- @apply bg-layout-grey;
- grid-area: header;
+ @apply bg-layout-grey hidden px-5;
+}
+
+.mobileMenu{
+ @apply grid fixed top-0 right-0 bottom-0 
+	left-0 pt-5 px-2.5 gap-6 z-50
+	 bg-layout-grey overflow-y-scroll
+}
+
+.menuClose{
+ @apply fixed z-10 top-4 right-4
+}
+
+@media (max-width: 765px) {
+	.header {
+  @apply grid gap-2.5 m-4;
+		grid-template-columns: 1fr 40px;
+	}
 }

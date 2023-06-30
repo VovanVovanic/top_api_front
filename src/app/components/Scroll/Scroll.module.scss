@@ -1,0 +1,16 @@
+.scroll{
+ @apply fixed right-8 bottom-20 w-10 h-10 
+ cursor-pointer border-none rounded-lg justify-center items-center bg-primary;
+ box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+ &:hover{
+  svg{
+   @apply fill-dark-grey bg-dark-grey rounded-lg text-black w-10 h-10 transition-all duration-300
+  }
+  path{
+   @apply fill-black
+  }
+  rect{
+   @apply fill-black
+  }
+ }
+}

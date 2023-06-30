@@ -1,0 +1,8 @@
+.productList{
+	@apply mb-[3.188rem]
+}
+
+.title {
+	@apply grid gap-5 mb-7 items-center justify-items-start bg-layout-grey;
+	grid-template-columns: auto 1fr auto;
+}

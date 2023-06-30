@@ -8,23 +8,26 @@ import Rating from '../Rating/Rating';
 import Divider from '../Divider/Divider';
 import Buttons from '../Buttons/Buttons';
 import Image from 'next/image'
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState,ForwardedRef, forwardRef } from 'react';
 import Review from '../ReviewItem/Review';
 import { v4 } from 'uuid';
 import { ReviewForm } from '..';
+import { motion } from 'framer-motion';
 
-export const Product = ({ product, className, ...props }: IProduct) => {
-  const ref = useRef<HTMLDivElement>(null)
+export const Product = motion(forwardRef(({ product, className, ...props }: IProduct, ref: ForwardedRef<HTMLDivElement>) => {
+
+  
+  const cardRef = useRef<HTMLDivElement>(null)
   const [reviewsOpen, setReviewsOpen] = useState<boolean>(false)
   const [scroll, setScroll] = useState<boolean>(false)
 
   useEffect(() => {
-    ref.current?.scrollIntoView({
+    cardRef.current?.scrollIntoView({
       behavior: 'smooth',
       block: 'start',
       inline: "nearest" 
     })
-    ref.current?.focus()
+    cardRef.current?.focus()
   },[scroll])
 
   const variants = {
@@ -41,7 +44,10 @@ export const Product = ({ product, className, ...props }: IProduct) => {
 }
   const discount = product.price - product.oldPrice
   return (
-    <div className={className} {...props} >
+    <div
+      className={className}
+      {...props}
+      ref={ref}>
       <Card className={classes.product}>
         <div className={classes.logo}>
           <Image
@@ -104,8 +110,14 @@ export const Product = ({ product, className, ...props }: IProduct) => {
         </div>
       </Card>
       {(product.reviews.length && reviewsOpen) ?
-        <div ref={ref}>
-        <Card color='blue'  tabIndex={reviewsOpen ? 0 : -1}>
+        <motion.div
+          variants={variants} initial="hidden" animate={reviewsOpen ? "visible" : "hidden"}
+          >
+          <Card
+            ref={cardRef}
+            color='blue' tabIndex={reviewsOpen ? 0 : -1}
+            className={classes.reviews}
+          >
           {product.reviews.map((el) => {
             return (
               <Review
@@ -114,9 +126,9 @@ export const Product = ({ product, className, ...props }: IProduct) => {
             )
           })}
           </Card>
-          </div>: ""
+          </motion.div>: ""
       }
       {(product.reviews.length && reviewsOpen) ? <ReviewForm productId={product._id} isOpened={reviewsOpen} /> : ""}
     </div>
   );
-};
+}));

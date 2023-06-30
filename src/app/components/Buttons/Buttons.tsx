@@ -3,8 +3,9 @@ import { IButtons } from "./Buttons.types"
 import classes from './Btns.module.scss'
 import cn from 'classnames'
 import Arrow from "../Arrow/Arrow"
+import { motion } from "framer-motion"
 
-const Buttons: React.FC<IButtons> = ({ appearance, children, onAction, showReviews=false, disabled,className}) => {
+const Buttons: React.FC<IButtons> = ({ appearance, children, onAction, showReviews = false, disabled, className, ...props }) => {
     const appearenceType = appearance === 'primary'
     !!appearenceType
 
@@ -13,15 +14,16 @@ const Buttons: React.FC<IButtons> = ({ appearance, children, onAction, showRevie
     const onClickHandler = () => {
         onAction()
     }
-    const getClassNames = cn(classes.button,className, {
+    const getClassNames = cn(classes.button, className, {
         [classes.primary]: appearenceType,
         [classes.ghost]: !appearenceType
     })
     return (
-        <button
+        <motion.button
+            whileHover={{ scale: 1.05 }}
             className={getClassNames}
             onClick={onClickHandler}
-            //{...props}
+            {...props}
             disabled={disabled}
         >
             <span className={cn(classes.text)}>
@@ -31,7 +33,7 @@ const Buttons: React.FC<IButtons> = ({ appearance, children, onAction, showRevie
                 appearance === 'ghost' ?
                     <Arrow dir={arrowDir} className={cn(classes.arrowBtn)} /> :
                     <></>}
-        </button>
+        </motion.button>
     )
 }
 

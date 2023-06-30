@@ -1,0 +1,33 @@
+.button {
+ @apply flex w-10 h-10 cursor-pointer rounded-lg justify-center items-center transition-all duration-300;
+ box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+}
+
+.primary {
+@apply bg-primary;
+ svg {
+  @apply fill-gray
+ }
+
+ &:hover {
+  @apply bg-gray;
+  svg{
+   @apply fill-primary
+  }
+ }
+}
+
+.white {
+ @apply bg-white;
+ svg {
+  @apply fill-primary
+ }
+
+ &:hover {
+  @apply bg-primary;
+
+  svg {
+   @apply fill-white
+  }
+ }
+}
