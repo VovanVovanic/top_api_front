@@ -1,5 +1,5 @@
 
-import classes from './layout.module.scss'
+import classes from './Layout.module.scss'
 import cn from 'classnames'
 import { ILayoutTypes } from './AuthTypes';
 import { ReactNode } from 'react';

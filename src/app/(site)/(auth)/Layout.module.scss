@@ -1,3 +1,4 @@
 .layout{
-    @apply bg-layout-grey;
+    @apply grid bg-layout-grey min-h-screen w-screen content-center justify-center;
+    grid-template-rows: 70vh auto;
 }

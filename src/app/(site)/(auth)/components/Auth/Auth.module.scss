@@ -1,0 +1,38 @@
+.authForm{
+    @apply  grid gap-10 box-border p-4 bg-dark-grey rounded-md w-[37.5rem];
+    grid-template-columns: repeat(3, 1fr);
+}
+.title{
+    @apply font-bold text-primary text-center mb-4
+}
+
+.authInputTitle{
+    @apply text-base text-black
+}
+.inputWrap{
+    grid-column: 1/-1; 
+}
+.email{
+@apply w-full bg-red;
+input{
+    @apply w-full
+} 
+}
+
+.password{
+@apply w-full;
+input{
+    @apply w-full
+}
+
+}
+
+.authLink{
+    @apply text-black text-base self-center transition-all duration-300 justify-self-end ;
+    &:hover{
+        @apply text-primary scale-105 font-bold underline
+    }
+}
+.back{
+    grid-column: 3/-1;
+}

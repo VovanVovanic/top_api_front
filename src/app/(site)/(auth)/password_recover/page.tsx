@@ -1,16 +1,16 @@
 import Auth from '../components/Auth/Auth'
 import { IAuthVariant } from '../components/Auth/AuthTypes'
-import classes from './Login.module.scss'
+import classes from './PasswordRecover.module.scss'
 import cn from 'classnames'
 
-const LoginPage: React.FC = () => {
+const PasswordRecoverPage: React.FC = () => {
 
  return (
 
   <div className={cn(classes.page)}>
-    <Auth variant={IAuthVariant.Login}/>
+    <Auth variant={IAuthVariant.PasswordRecover}/>
   </div>
 
  )
 }
-export default LoginPage
+export default PasswordRecoverPage
